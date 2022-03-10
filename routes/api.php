@@ -18,10 +18,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::group([
-    'middleware' => 'api',
+    'middleware' => 'api', 'cors',
     'prefix' => 'auth'
 
-], function ($router) {
+], function () {
     Route::post('/login', 'Auth\AuthController@login');
     Route::post('/register', 'Auth\AuthController@register');
     Route::post('/logout', 'Auth\AuthController@logout');
