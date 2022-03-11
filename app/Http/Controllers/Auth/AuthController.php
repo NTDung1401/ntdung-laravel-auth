@@ -12,7 +12,7 @@ use Validator;
 class AuthController extends Controller
 {
     public function __construct() {
-        $this->middleware('auth:api', ['except' => ['login', 'register']]);
+        $this->middleware('auth:api', ['except' => ['login', 'register', 'logout', 'userProfile']]);
     }
 
     public function login(Request $request){
@@ -55,7 +55,7 @@ class AuthController extends Controller
         ], 201);
     }
 
-    public function logout(Request $request) {
+    public function logout() {
         auth()->logout();
 
         return response()->json(['message' => 'User successfully signed out']);
